@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 function KartuProfil({ nama, npm, kelas, status, fotoUrl }) {

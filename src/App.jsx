@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './App.css';
 
@@ -12,7 +11,6 @@ import fotoProfil from './assets/psyduck-avatar.jpg';
 
 function App() {
 
-  // DATA KEAHLIAN
   const daftarSkill = [
     { id: 1, nama: 'HTML & CSS', level: 'Menengah' },
     { id: 2, nama: 'JavaScript', level: 'Pemula' },
@@ -22,7 +20,6 @@ function App() {
     { id: 6, nama: 'Git & GitHub', level: 'Pemula' }
   ];
 
-  // DATA MATA KULIAH PRAKTIKUM
   const daftarMatkul = [
     {
       id: 1,
@@ -50,7 +47,6 @@ function App() {
     }
   ];
 
-  // DATA SHOWCASE PROYEK
   const daftarProyek = [
     {
       id: 1,
@@ -89,7 +85,6 @@ function App() {
   return (
     <div className="app-container">
 
-      {/* PROFIL MAHASISWA */}
       <section className="section">
         <h2 className="section-title">
           Profil <span>Mahasiswa</span>
@@ -104,7 +99,6 @@ function App() {
         />
       </section>
 
-      {/* KEAHLIAN MAHASISWA */}
       <section className="section">
         <h2 className="section-title">
           Keahlian <span>Mahasiswa</span>
@@ -121,7 +115,6 @@ function App() {
         </div>
       </section>
 
-      {/* MATA KULIAH PRAKTIKUM */}
       <section className="section">
         <h2 className="section-title">
           Mata Kuliah <span>Praktikum</span>
@@ -139,7 +132,6 @@ function App() {
         </div>
       </section>
 
-      {/* SHOWCASE PROYEK */}
       <section className="section">
         <h2 className="section-title">
           Showcase <span>Portofolio Mini</span>
@@ -169,7 +161,6 @@ function App() {
         </div>
       </section>
 
-      {/* INTERAKSI */}
       <section
         className="section"
         style={{ textAlign: 'center' }}
@@ -177,7 +168,6 @@ function App() {
         <Sapaan />
       </section>
 
-      {/* FOOTER */}
       <footer className="footer">
         <p>
           © 2026 Yoga | Praktikum Pemrograman Web

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 function ItemMatkul({ nama, sks, semester }) {
