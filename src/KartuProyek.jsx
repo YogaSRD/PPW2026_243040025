@@ -1,5 +1,10 @@
 
-function KartuProyek({ judul, deskripsi, teknologi, link }) {
+function KartuProyek({
+  judul,
+  deskripsi,
+  teknologi = [],
+  link
+}) {
   return (
     <div style={{
       backgroundColor: '#FFFFFF',

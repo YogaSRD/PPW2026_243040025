@@ -1,144 +1,162 @@
 
+import React from 'react';
 import './App.css';
 
-import Sapaan from './Sapaan';
-import KartuProfil from './KartuProfil';
 import BadgeSkill from './BadgeSkill';
+import KartuProfil from './KartuProfil';
 import ItemMatkul from './ItemMatkul';
 import KartuProyek from './KartuProyek';
+import Sapaan from './Sapaan';
+
+import fotoProfil from './assets/psyduck-avatar.jpg';
 
 function App() {
 
+  // DATA KEAHLIAN
+  const daftarSkill = [
+    { id: 1, nama: 'HTML & CSS', level: 'Menengah' },
+    { id: 2, nama: 'JavaScript', level: 'Pemula' },
+    { id: 3, nama: 'React JS', level: 'Pemula' },
+    { id: 4, nama: 'Java', level: 'Pemula' },
+    { id: 5, nama: 'SQL', level: 'Pemula' },
+    { id: 6, nama: 'Git & GitHub', level: 'Pemula' }
+  ];
+
+  // DATA MATA KULIAH PRAKTIKUM
   const daftarMatkul = [
     {
       id: 1,
-      nama: "Pemrograman Web",
-      sks: 3,
+      nama: 'Praktikum Pemrograman II',
+      sks: 2,
       semester: 5
     },
     {
       id: 2,
-      nama: "Basis Data",
-      sks: 3,
+      nama: 'Praktikum Sistem Berorientasi Objek',
+      sks: 1,
       semester: 5
     },
     {
       id: 3,
-      nama: "Rekayasa Perangkat Lunak",
-      sks: 3,
+      nama: 'Praktikum Web',
+      sks: 2,
       semester: 5
     },
     {
       id: 4,
-      nama: "Interaksi Manusia dan Komputer",
-      sks: 2,
+      nama: 'Praktikum Basis Data',
+      sks: 1,
       semester: 5
     }
   ];
 
+  // DATA SHOWCASE PROYEK
   const daftarProyek = [
     {
       id: 1,
-      judul: "Website Profil Pribadi",
-      deskripsi: "Website sederhana untuk menampilkan informasi dan profil pribadi menggunakan HTML dan CSS.",
-      teknologi: ["HTML", "CSS"],
-      link: "https://github.com/YogaSRD/NAMA-REPOSITORY-1"
+      judul: 'Website Profil Mahasiswa',
+      deskripsi:
+        'Website portofolio pribadi untuk menampilkan identitas, keahlian, mata kuliah, dan proyek menggunakan React JS.',
+      teknologi: ['React JS', 'JavaScript', 'CSS'],
+      link: ''
     },
     {
       id: 2,
-      judul: "Sistem Informasi Database",
-      deskripsi: "Perancangan database untuk menyimpan dan mengelola informasi secara terstruktur.",
-      teknologi: ["SQL", "Database"],
-      link: "https://github.com/YogaSRD/NAMA-REPOSITORY-2"
+      judul: 'Sistem Informasi Pembayaran DPP',
+      deskripsi:
+        'Perancangan sistem informasi untuk membantu pengelolaan data dan proses pembayaran DPP mahasiswa.',
+      teknologi: ['Analisis Sistem', 'Database', 'SQL'],
+      link: ''
     },
     {
       id: 3,
-      judul: "Aplikasi React",
-      deskripsi: "Aplikasi frontend menggunakan React dengan komponen yang dapat digunakan kembali.",
-      teknologi: ["React", "JavaScript"],
-      link: "https://github.com/YogaSRD/NAMA-REPOSITORY-3"
+      judul: 'Program Simulasi ATM',
+      deskripsi:
+        'Program simulasi mesin ATM menggunakan Java dengan penerapan konsep pemrograman berorientasi objek.',
+      teknologi: ['Java', 'OOP'],
+      link: ''
     },
     {
       id: 4,
-      judul: "Game Sederhana",
-      deskripsi: "Permainan sederhana yang menggunakan JavaScript untuk mengatur interaksi pengguna.",
-      teknologi: ["JavaScript", "HTML", "CSS"],
-      link: "https://github.com/YogaSRD/NAMA-REPOSITORY-4"
+      judul: 'Perancangan Database',
+      deskripsi:
+        'Perancangan basis data menggunakan tabel, relasi, constraint, dan perintah SQL untuk pengelolaan informasi.',
+      teknologi: ['SQL Server', 'SQL', 'Database'],
+      link: ''
     }
   ];
 
   return (
-    <div style={{
-      maxWidth: '900px',
-      margin: '40px auto',
-      padding: '0 24px',
-      fontFamily: 'Arial, sans-serif'
-    }}>
+    <div className="app-container">
 
-      <header style={{
-        textAlign: 'center',
-        marginBottom: '32px'
-      }}>
-        <h1>Praktikum Pemrograman Web</h1>
-        <p>Portofolio Mahasiswa Informatika</p>
-      </header>
-
-      <section style={{ marginBottom: '32px' }}>
-        <h2>Profil Mahasiswa Praktikan</h2>
+      {/* PROFIL MAHASISWA */}
+      <section className="section">
+        <h2 className="section-title">
+          Profil <span>Mahasiswa</span>
+        </h2>
 
         <KartuProfil
           nama="Yoga"
           npm="243040025"
-          kelas="IF - Praktikum"
+          kelas="Praktikum Web Kelas A"
           status="Aktif"
+          fotoUrl={fotoProfil}
         />
       </section>
 
-      <section style={{ marginBottom: '32px' }}>
-        <h2>Keahlian Mahasiswa</h2>
+      {/* KEAHLIAN MAHASISWA */}
+      <section className="section">
+        <h2 className="section-title">
+          Keahlian <span>Mahasiswa</span>
+        </h2>
 
-        <BadgeSkill
-          namaSkill="JavaScript"
-          level="Pemula"
-        />
-
-        <BadgeSkill
-          namaSkill="React"
-          level="Pemula"
-        />
-
-        <BadgeSkill
-          namaSkill="HTML & CSS"
-          level="Menengah"
-        />
+        <div className="skill-list">
+          {daftarSkill.map((skill) => (
+            <BadgeSkill
+              key={skill.id}
+              namaSkill={skill.nama}
+              level={skill.level}
+            />
+          ))}
+        </div>
       </section>
 
-      <section style={{ marginBottom: '32px' }}>
-        <h2>Daftar Mata Kuliah</h2>
+      {/* MATA KULIAH PRAKTIKUM */}
+      <section className="section">
+        <h2 className="section-title">
+          Mata Kuliah <span>Praktikum</span>
+        </h2>
 
-        {daftarMatkul.map((matkul) => (
-          <ItemMatkul
-            key={matkul.id}
-            nama={matkul.nama}
-            sks={matkul.sks}
-            semester={matkul.semester}
-          />
-        ))}
+        <div className="subject-list">
+          {daftarMatkul.map((matkul) => (
+            <ItemMatkul
+              key={matkul.id}
+              nama={matkul.nama}
+              sks={matkul.sks}
+              semester={matkul.semester}
+            />
+          ))}
+        </div>
       </section>
 
-      <section style={{ marginBottom: '32px' }}>
-        <h2>Showcase Portofolio Mini</h2>
+      {/* SHOWCASE PROYEK */}
+      <section className="section">
+        <h2 className="section-title">
+          Showcase <span>Portofolio Mini</span>
+        </h2>
 
-        <p>
-          Berikut adalah contoh proyek pengembangan
-          aplikasi dalam bidang teknologi informasi.
+        <p
+          style={{
+            color: 'var(--text-muted)',
+            marginBottom: '25px',
+            lineHeight: '1.7'
+          }}
+        >
+          Beberapa proyek dan hasil pembelajaran
+          dalam bidang teknologi informasi.
         </p>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '18px'
-        }}>
+        <div className="project-list">
           {daftarProyek.map((proyek) => (
             <KartuProyek
               key={proyek.id}
@@ -151,13 +169,20 @@ function App() {
         </div>
       </section>
 
-      <div style={{
-        textAlign: 'center',
-        marginTop: '35px',
-        marginBottom: '35px'
-      }}>
+      {/* INTERAKSI */}
+      <section
+        className="section"
+        style={{ textAlign: 'center' }}
+      >
         <Sapaan />
-      </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        <p>
+          © 2026 Yoga | Praktikum Pemrograman Web
+        </p>
+      </footer>
 
     </div>
   );

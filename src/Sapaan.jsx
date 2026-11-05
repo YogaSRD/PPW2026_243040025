@@ -1,17 +1,19 @@
 
-const Sapaan = () => {
+import React from 'react';
 
-    const notifikasiSapaan = () => {
-        alert("Selamat datang di website saya");
-    };
+function Sapaan() {
+  const notifikasiSapaan = () => {
+    alert('Halo Yoga! Selamat datang di portofolio saya.');
+  };
 
-    return (
-        <div>
-            <button onClick={notifikasiSapaan}>
-                Klik Aku Sekarang
-            </button>
-        </div>
-    );
-};
+  return (
+    <button
+      className="primary-button"
+      onClick={notifikasiSapaan}
+    >
+      Klik untuk menyapa
+    </button>
+  );
+}
 
 export default Sapaan;
